@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "_name": "EasyModel",
+    "_slogan": "3D моделирование и всё о нём!"
+  },
+  "main_info": {
+    "modelling_main_themes": [
+      {
+        "_title": "История 3D моделирования",
+        "_desc": "sth_desc"
+      },
+      {
+        "_title": "Возможности 3D моделирования",
+        "_desc": "sth_desc"
+      },
+      {
+        "_title": "Область применения 3D моделирования",
+        "_desc": "sth_desc"
+      }
+    ],
+    "modeling_types": [
+      {
+        "_title": "Полигональное моделирование",
+        "_desc": "sth_desc",
+        "_img": "polig_model.jpg"
+      },
+      {
+        "_title": "Сплайновое моделирование",
+        "_desc": "sth_desc",
+        "_img": "spline_model"
+      },
+      {
+        "_title": "NURBS моделирование",
+        "_desc": "sth_desc",
+        "_img": "NURBS_model"
+      }
+    ]
+  }
+}
