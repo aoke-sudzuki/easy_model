@@ -7,11 +7,158 @@
     <link rel="stylesheet" href="./src/css/styles.css" />
     <title>EasyModel</title>
   </head>
-  <body id="app">
-    <h1>hello world</h1>
+  <body>
+    <div id="app">
+      <header class="header">
+        <div class="header__fixed-menu">
+          <div class="fixed-menu">
+            <ul class="fixed-menu__left fixed-menu__list">
+              <li class="fixed-menu__item">
+                <router-link class="act-hov__btn" to="/">Главная</router-link>
+              </li>
+              <li class="fixed-menu__item">
+                <router-link class="act-hov__btn" to="/history"
+                  >История</router-link
+                >
+              </li>
+              <li class="fixed-menu__item">
+                <router-link class="act-hov__btn" to="/products"
+                  >Продукты</router-link
+                >
+              </li>
+              <li class="fixed-menu__item">
+                <router-link class="act-hov__btn" to="/review"
+                  >Обзор</router-link
+                >
+              </li>
+            </ul>
+            <router-link to="/" class="act-hov__btn fixed-menu__logo"
+              >EasyModel</router-link
+            >
+            <ul class="fixed-menu__right fixed-menu__list">
+              <li class="fixed-menu__item">
+                <router-link class="act-hov__btn" to="/about"
+                  >О проекте</router-link
+                >
+              </li>
+              <li class="fixed-menu__item">
+                <router-link class="act-hov__btn" to="/feedback"
+                  >Связь с нами</router-link
+                >
+              </li>
+              <li class="fixed-menu__item">
+                <router-link class="act-hov__btn" to="/community"
+                  >Сообщество</router-link
+                >
+              </li>
+              <li class="fixed-menu__item">
+                <router-link class="act-hov__btn" to="/help"
+                  >Поддержка</router-link
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="header__slider">
+          <ul id="slider-list" class="slider__list">
+            <li
+              class="slider__item fade active"
+              v-for="slide in data.main_info.modelling_main_themes"
+              :key="slide._id"
+            >
+              <div class="main_info">
+                <div class="title">{{ slide._title }}</div>
+                <p class="content">{{ slide._content }}</p>
+              </div>
+              <img :src="'./src/img/' + slide._img" :alt="slide._title" />
+            </li>
+          </ul>
+          <div
+            id="prev"
+            class="slider__arrow-left slider__arrow"
+            onclick="prevSlide()"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <div
+            id="next"
+            class="slider__arrow-right slider__arrow"
+            onclick="nextSlide()"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+      </header>
+
+      <router-view></router-view>
+      <section class="section__container">
+        <div class="section__item">
+          <div class="section__item-title">Виды 3Д моделирования</div>
+          <ul class="modelling-types__list">
+            <li
+              class="modelling-types__item"
+              v-for="m_type in data.main_info.modeling_types"
+              :key="m_type._id"
+              :class="{'modeling-types__item-reverse': m_type._id/2 == 1}"
+            >
+              <div class="sect__one">
+                <span class="sect__title">{{ m_type._title }}</span>
+                <p class="sect__content">
+                  {{ m_type._content.substring(0,355)+".." }}
+                </p>
+                <button class="sect__full act-hov__btn">
+                  Читать полностью
+                </button>
+              </div>
+              <div class="sect__two">
+                <img
+                  class="sect__img"
+                  :src="'./src/img/' + m_type._img"
+                  :alt="m_type._title"
+                />
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="section__item">
+          <div class="section__item-title">Популярные продукты</div>
+          <ul class="modelling-types__list">
+            <li
+              class="modelling-types__item"
+              v-for="m_type in data.main_info.modeling_types"
+              :key="m_type._id"
+              :class="{'modeling-types__item-reverse': m_type._id/2 == 1}"
+            >
+              <div class="sect__one">
+                <span class="sect__title">{{ m_type._title }}</span>
+                <p class="sect__content">
+                  {{ m_type._content.substring(0,355)+".." }}
+                </p>
+                <button class="sect__full act-hov__btn">
+                  Читать полностью
+                </button>
+              </div>
+              <div class="sect__two">
+                <img
+                  class="sect__img"
+                  :src="'./src/img/' + m_type._img"
+                  :alt="m_type._title"
+                />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <footer class="footer">Footer</footer>
+    </div>
 
     <!-- Init main dependencies -->
-    <script src="src/script/vue.js"></script>
-    <script src="src/script/index.js"></script>
+    <script src="./src/script/dep/vue.js"></script>
+    <script src="./src/script/dep/vue-router.js"></script>
+    <script src="./src/script/config.js"></script>
+    <script src="./src/components//pages/home_page.js"></script>
+    <script src="./src/script/index.js"></script>
+    <script src="./src/script/slider.js"></script>
+    <script src="./src/script/dep/font-awesome.js"></script>
   </body>
 </html>
